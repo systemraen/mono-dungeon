@@ -54,6 +54,8 @@ namespace dungeon.Classes
             idleAnimationName = heroString + "_idle_anim";
             moveAnimationName = heroString + "_move_anim";
             attackAnimationName = heroString + "_hit_anim";
+
+            SetState(State.Idle);
         }
     }
 }

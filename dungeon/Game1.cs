@@ -34,6 +34,7 @@ namespace dungeon
         protected override void Initialize()
         {
             DungeonSprite.Init();
+            hero = new Hero(Hero.HeroType.Elf_F);
 
             base.Initialize();
         }
