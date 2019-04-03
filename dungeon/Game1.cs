@@ -18,6 +18,7 @@ namespace dungeon
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             graphics.ApplyChanges();
@@ -82,7 +83,7 @@ namespace dungeon
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             hero.Draw(spriteBatch);
             spriteBatch.End();
 

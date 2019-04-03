@@ -46,7 +46,13 @@ namespace dungeon.Classes
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteSheet, spritePos, tileData.sourceRect, Color.White);
+            var rotation = 0f;
+            var scale = 2f;
+            var origin = new Vector2(tileData.sourceRect.Width / 2, tileData.sourceRect.Height / 2);
+            var spriteEffects = SpriteEffects.None;
+            var layerDepth = 0f;
+
+            spriteBatch.Draw(spriteSheet, spritePos, tileData.sourceRect, Color.White, rotation, origin, scale, spriteEffects, layerDepth);
         }
     }
 }

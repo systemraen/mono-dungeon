@@ -22,7 +22,7 @@ namespace dungeon.Classes
         static protected Dictionary<string, TileData> tiles = new Dictionary<string, TileData>();
 
         protected TileData tileData;
-        protected Vector2 spritePos = new Vector2(0, 0);
+        protected Vector2 spritePos = new Vector2(100, 100);
 
         public static void Init()
         {
