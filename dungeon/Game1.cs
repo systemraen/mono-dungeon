@@ -11,11 +11,16 @@ namespace dungeon
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        Texture2D dungeonSprites;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
+            graphics.ApplyChanges();
+
+            Content.RootDirectory = "Content"; 
         }
 
         /// <summary>
@@ -27,6 +32,7 @@ namespace dungeon
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            
 
             base.Initialize();
         }
@@ -40,7 +46,7 @@ namespace dungeon
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            dungeonSprites = Content.Load<Texture2D>("dungeon_sprites");
         }
 
         /// <summary>
@@ -75,7 +81,9 @@ namespace dungeon
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(dungeonSprites, new Vector2(0, 0), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
