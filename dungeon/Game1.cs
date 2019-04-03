@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using dungeon.Classes;
+
 namespace dungeon
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace dungeon
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D dungeonSprites;
+        Hero hero;
 
         public Game1()
         {
@@ -31,8 +33,7 @@ namespace dungeon
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            
+            DungeonSprite.Init();
 
             base.Initialize();
         }
@@ -45,8 +46,7 @@ namespace dungeon
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            dungeonSprites = Content.Load<Texture2D>("dungeon_sprites");
+            DungeonSprite.LoadContent(Content);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace dungeon
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(dungeonSprites, new Vector2(0, 0), Color.White);
+            hero.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
