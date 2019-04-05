@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace dungeon.Classes
 {
@@ -52,10 +53,10 @@ namespace dungeon.Classes
             }
 
             idleAnimationName = heroString + "_idle_anim";
-            moveAnimationName = heroString + "_move_anim";
+            moveAnimationName = heroString + "_run_anim";
             attackAnimationName = heroString + "_hit_anim";
 
-            SetState(State.Idle);
+            SetState(State.Moving);
         }
     }
 }
