@@ -58,5 +58,10 @@ namespace dungeon.Classes
 
             SetState(State.Moving);
         }
+
+        public new void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
     }
 }

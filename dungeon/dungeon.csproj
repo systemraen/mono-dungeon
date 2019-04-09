@@ -45,6 +45,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\EventHandler.cs" />
     <Compile Include="Classes\AnimatedSprite.cs" />
     <Compile Include="Classes\DungeonSprite.cs" />
     <Compile Include="Classes\Hero.cs" />

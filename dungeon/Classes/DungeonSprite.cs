@@ -81,11 +81,11 @@ namespace dungeon.Classes
 
         internal void Update(GameTime gameTime)
         {
-            if (tileData.Frames > 1)
-            {
-                var frame = (int)(gameTime.TotalGameTime.TotalSeconds * 7) % tileData.Frames;
-                tileData.OffsetX = tileData.SourceRect.Width * frame;
-            }
+            //if (tileData.Frames > 1)
+            //{
+            //    var frame = (int)(gameTime.TotalGameTime.TotalSeconds * 7) % tileData.Frames;
+            //    tileData.OffsetX = tileData.SourceRect.Width * frame;
+            //}
         }
 
         public void Draw(SpriteBatch spriteBatch)
