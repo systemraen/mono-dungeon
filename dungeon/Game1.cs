@@ -11,12 +11,18 @@ namespace dungeon
     /// </summary>
     public class Game1 : Game
     {
+        ConfigManager config;
+        EventHandler eventHandler;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Hero hero;
 
         public Game1()
         {
+            Logger.WriteLine("{0}", "test");
+
+            config = new ConfigManager();
+            eventHandler = new EventHandler(config);
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferredBackBufferWidth = 1280;
@@ -34,8 +40,10 @@ namespace dungeon
         /// </summary>
         protected override void Initialize()
         {
+            config.Init();
+            eventHandler.Init();
             DungeonSprite.Init();
-            hero = new Hero(Hero.HeroType.Elf_F);
+            hero = new Hero(Hero.HeroType.Elf_F, eventHandler);
 
             base.Initialize();
         }
@@ -69,6 +77,7 @@ namespace dungeon
         {
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             //    Exit();
+            eventHandler.Update();
             hero.Update(gameTime);
             
             base.Update(gameTime);

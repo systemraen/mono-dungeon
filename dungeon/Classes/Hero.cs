@@ -10,6 +10,7 @@ namespace dungeon.Classes
     class Hero : AnimatedSprite
     {
         private HeroType heroType;
+        private EventHandler eventHandler;
 
         public enum HeroType
         {
@@ -21,8 +22,9 @@ namespace dungeon.Classes
             Wizard_M
         };
 
-        public Hero(HeroType heroType)
-        {            
+        public Hero(HeroType heroType, EventHandler eventHandler)
+        {
+            this.eventHandler = eventHandler;
             SetHeroType(heroType);
         }
 
@@ -61,6 +63,11 @@ namespace dungeon.Classes
 
         public new void Update(GameTime gameTime)
         {
+            if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Up))
+            {
+                spritePos.Y -= 10;
+            }
+
             base.Update(gameTime);
         }
     }
