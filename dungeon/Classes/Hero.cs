@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace dungeon.Classes
 {
@@ -83,11 +84,13 @@ namespace dungeon.Classes
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Left))
             {
                 spritePos.X -= 10;
+                spriteEffects = SpriteEffects.FlipHorizontally;
             }
 
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Right))
             {
                 spritePos.X += 10;
+                spriteEffects = SpriteEffects.None;
             }
         }
     }
