@@ -19,8 +19,6 @@ namespace dungeon
 
         public Game1()
         {
-            Logger.WriteLine("{0}", "test");
-
             config = new ConfigManager();
             eventHandler = new EventHandler(config);
             graphics = new GraphicsDeviceManager(this);

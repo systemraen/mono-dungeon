@@ -8,7 +8,7 @@ namespace dungeon.Classes
 {
     static class Logger
     {
-        public static void WriteLine(params object[] value)
+        public static void WriteLine(string value)
         {
             // TODO: update logger to go to different places
 
