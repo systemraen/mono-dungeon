@@ -63,12 +63,32 @@ namespace dungeon.Classes
 
         public new void Update(GameTime gameTime)
         {
+            CheckMove();
+
+            base.Update(gameTime);
+        }
+
+        private void CheckMove()
+        {
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Up))
             {
                 spritePos.Y -= 10;
             }
 
-            base.Update(gameTime);
+            if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Down))
+            {
+                spritePos.Y += 10;
+            }
+
+            if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Left))
+            {
+                spritePos.X -= 10;
+            }
+
+            if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Right))
+            {
+                spritePos.X += 10;
+            }
         }
     }
 }
