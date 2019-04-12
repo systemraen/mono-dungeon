@@ -27,7 +27,9 @@ namespace dungeon
             graphics.PreferredBackBufferHeight = 720;
             graphics.ApplyChanges();
 
-            Content.RootDirectory = "Content"; 
+            Content.RootDirectory = "Content";
+
+            Logger.WriteLine(this.TargetElapsedTime.ToString());
         }
 
         /// <summary>

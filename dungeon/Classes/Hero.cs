@@ -12,6 +12,7 @@ namespace dungeon.Classes
     {
         private HeroType heroType;
         private EventHandler eventHandler;
+        private TimeSpan lastMove;
 
         public enum HeroType
         {
@@ -25,6 +26,7 @@ namespace dungeon.Classes
 
         public Hero(HeroType heroType, EventHandler eventHandler)
         {
+            lastMove = TimeSpan.Zero;
             this.eventHandler = eventHandler;
             SetHeroType(heroType);
         }
@@ -66,11 +68,23 @@ namespace dungeon.Classes
         {
             CheckMove();
 
+            lastMove += gameTime.ElapsedGameTime;
+
+            Console.WriteLine(gameTime.IsRunningSlowly);
+
             base.Update(gameTime);
         }
 
+        
         private void CheckMove()
         {
+            if (lastMove.TotalSeconds < .03)
+            {                
+                return;
+            }
+
+            lastMove = TimeSpan.Zero;
+
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Up))
             {
                 spritePos.Y -= 10;
