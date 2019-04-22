@@ -80,30 +80,30 @@ namespace dungeon.Classes
         {
             if (lastMove.TotalSeconds < .03)
             {                
-                return;
+                //return;
             }
 
             lastMove = TimeSpan.Zero;
 
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Up))
             {
-                spritePos.Y -= 10;
+                spritePos.Y--;
             }
 
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Down))
             {
-                spritePos.Y += 10;
+                spritePos.Y++;
             }
 
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Left))
             {
-                spritePos.X -= 10;
+                spritePos.X--;
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
 
             if (eventHandler.CurrentActions.HasFlag(EventHandler.Actions.Right))
             {
-                spritePos.X += 10;
+                spritePos.X++;
                 spriteEffects = SpriteEffects.None;
             }
         }

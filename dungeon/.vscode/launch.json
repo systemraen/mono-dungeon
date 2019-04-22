@@ -9,14 +9,8 @@
             "type": "mono",
             "request": "launch",
             "program": "${workspaceRoot}/bin/DesktopGL/AnyCPU/Debug/dungeon.exe",
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Attach",
-            "type": "mono",
-            "request": "attach",
-            "address": "localhost",
-            "port": 55555
+            "cwd": "${workspaceRoot}", 
+            "preLaunchTask": "build"
         }
     ]
 }
